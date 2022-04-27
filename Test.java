@@ -1,36 +1,31 @@
-package exercice1;
-
+import java.util.ArrayList;
 public class Test {
 
 	public static void main(String[] args) {
-		Auteur A1 = new Auteur("Aymen");
-		Auteur A2 = new Auteur("Ahmed");
-		Auteur A3 = new Auteur("Oussema");
-		Auteur[] a = new Auteur[1];
-		a[0] = A1;
-		Livre L1 = new Livre("La fuite", a);
-		Auteur[] b = new Auteur[2];
-		b[0] = A2;
-		b[1] = A1;
-		Livre L2 = new Livre("La richesse", b);
-		Auteur[] c = new Auteur[2];
-		c[0] = A3;
-		c[1] = A2;
-		Livre L3 = new Livre("Lalaland", c);
-		A1.ajouterLivre(L1);
-		A1.ajouterLivre(L2);
-		A2.ajouterLivre(L2);
-		A2.ajouterLivre(L3);
-		A3.ajouterLivre(L3);
-		System.out.println("Description de 1 auteur de l1");
-		L1.getPremierAuteur().afficher();
-		System.out.println("desc de tous les auteurs de l3");
-		for (Auteur l : L3.getAuteurs()) {
-			l.afficher();
+		ArrayList<Vehicule> liste=new ArrayList<>();
+		liste.add(new Voiture("Lamborghini"));
+		liste.add(new Avion("Concorde"));
+		liste.add(new Velo("Rockrider"));
+		for(int i=0;i<liste.size();i++) {
+			if(liste.get(i) instanceof Voiture) {
+			System.out.println(liste.get(i).toString()+liste.get(i).seDeplacer()+" et la valeure de propriete :"+((Voiture)liste.get(i)).calculer());
+			}
+			else if(liste.get(i) instanceof Avion) {
+				System.out.println(liste.get(i).toString()+liste.get(i).seDeplacer()+" et la valeure de propriete :"+((Avion)liste.get(i)).calculer());
+			}
+			else {
+				System.out.println(liste.get(i).toString()+liste.get(i).seDeplacer());
+			}
+				
+			}
+		
+		ArrayList<Motorise> liste1=new ArrayList<>();
+		liste1.add(new Voiture("Porshe"));
+		liste1.add(new Avion("F12"));
+		for(int i=0;i<liste1.size();i++) {
+			System.out.println(liste1.get(i).toString()+liste.get(i).seDeplacer()+" et la valeure de propriete est :"+liste1.get(i).calculer());
 		}
-		System.out.println("nom du 1 auteur de l1");
-		System.out.println(L1.getPremierAuteur().getNom());
-
+		
 	}
 
 }
